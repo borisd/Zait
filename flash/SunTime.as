@@ -2,12 +2,12 @@
 	
 	public class SunTime {
 		
-		public function SunTime(_coef:Number, _jewishTime:int, _requestTime:int)
+		public function SunTime(_coef:Number, _jewishTime:Number, _requestTime:Number)
 		{
 			trace("Init suntime");
-			coef = _coef;
-			startJewishTime = new Date(_jewishTime);
+			coef = _coef;			startJewishTime = new Date(_jewishTime);
 			startRequestTime = new Date(_requestTime);
+			trace("Jewish: " + startJewishTime + " Request: " + startRequestTime);
 		}
 	
 		private var coef:Number;
@@ -15,15 +15,14 @@
 		private var startRequestTime:Date;
 		private var currJewishTime:Date;
 
-		public function calculateNow():void
-		{
-			var date:Date = new Date();
-			calculate(date.getTime());
+		public function calculateNow():void	{
+			calculate((new Date()).getTime());
 		}
 	
 		public function calculate(time):void
 		{
-			trace("Starting time calculation from: " + time);
+			trace("Starting time calculation from: " + time + " diff: " + (time - startRequestTime.getTime()));
+			trace("jew" + startJewishTime + " request: " + startRequestTime);
 			currJewishTime = new Date(startJewishTime.getTime() + (time - startRequestTime.getTime()) * coef);
 			trace("Result: " + currJewishTime);
 		}
