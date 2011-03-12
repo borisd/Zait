@@ -5,7 +5,8 @@
 		public function SunTime(_coef:Number, _jewishTime:Number, _requestTime:Number)
 		{
 			trace("Init suntime");
-			coef = _coef;			startJewishTime = new Date(_jewishTime);
+			coef = _coef;			
+			startJewishTime  = new Date(_jewishTime);
 			startRequestTime = new Date(_requestTime);
 			trace("Jewish: " + startJewishTime + " Request: " + startRequestTime);
 		}
