@@ -1,0 +1,2 @@
+module SunTimeHelper
+end
