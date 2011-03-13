@@ -1,3 +1,8 @@
+function print(msg) {
+  if (console && console.log)
+    console.log(msg);
+}
+
 function stringToTime(time) {
   var st = time.split(':');
   var datetime = new Date();
@@ -24,14 +29,14 @@ var Time = function() {
 
     flashReady: function(clock) 
     {
-      console.log('Flash clock loaded');
+      print('Flash clock loaded');
       this.flashClock = clock;
       this._updateClock();
     },
 
     init: function()
     {
-      console.log('Start clock init...');
+      print('Start clock init...');
       this._getTime();
     },
 
@@ -42,7 +47,7 @@ var Time = function() {
       if (!that.flashClock || !that.currTime)
         return;
 
-      console.log('Update flash clock');
+      print('Update flash clock');
       that.flashClock.loadClock(that.currTime.coef, that.currTime.sunTime, that.currTime.timestamp);
     },
 
@@ -58,8 +63,8 @@ var Time = function() {
       }
 
       function loadTime(data) {
-        console.log('Got clock data: ' + data);
-        console.log(data);
+        print('Got clock data: ' + data);
+        print(data);
         var time = TimeObject();
 
         time.coef      = data.coef;
@@ -68,14 +73,14 @@ var Time = function() {
         time.timestamp = data.param;
 
         that.currTime = time; 
-        console.log('Jewish : ' + (new Date(time.sunTime)));
-        console.log('Request: ' + (new Date(time.timestamp)));
+        print('Jewish : ' + (new Date(time.sunTime)));
+        print('Request: ' + (new Date(time.timestamp)));
 
         that._updateClock();
       }
 
       function loadTimeError(xhr, error) {
-        console.log(' -- Error getting clock data: ' + error);
+        print(' -- Error getting clock data: ' + error);
       }
 
       $.ajax({

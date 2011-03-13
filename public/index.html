@@ -23,19 +23,24 @@
     </div>
 
     <script type="text/javascript">
+      function print(msg) {
+        if (console && console.log)
+          console.log(msg);
+      }
+
       function JSclockReady(val) {
         var isInternetExplorer = navigator.appName.indexOf("Microsoft") != -1;
         var clock = isInternetExplorer ? document.all.clock : document.clock;
-        console.log('Got: [' + val + ']');
+        print('Got: [' + val + ']');
         Time.flashReady(clock);
       }
 
       function JSprint(val) {
-        console.log('Flash: [' + val + ']');
+        print('Flash: [' + val + ']');
       }
 
       $(window).ready(function() {
-        console.log('Document ready...');
+        print('Document ready...');
         Time.init();
       });
     </script>
