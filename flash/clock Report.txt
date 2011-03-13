@@ -1,0 +1,44 @@
+﻿clock.swf Movie Report
+-----------------------
+
+Metadata
+--------
+Bytes         Value
+----------    -----
+      1290    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"> <rdf:Description rdf:about="" xmlns:xmp="http://ns.adobe.com/xap/1.0/"> <xmp:CreatorTool>Adobe Flash Professional CS5</xmp:CreatorTool> <xmp:CreateDate>2011-03-02T12:52:32+02:00</xmp:CreateDate> <xmp:MetadataDate>2011-03-12T14:09:43+02:00</xmp:MetadataDate> <xmp:ModifyDate>2011-03-12T14:09:43+02:00</xmp:ModifyDate> </rdf:Description> <rdf:Description rdf:about="" xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/" xmlns:stRef="http://ns.adobe.com/xap/1.0/sType/ResourceRef#"> <xmpMM:InstanceID>xmp.iid:2372AAACA04CE0118D969187A884DC50</xmpMM:InstanceID> <xmpMM:DocumentID>xmp.did:2372AAACA04CE0118D969187A884DC50</xmpMM:DocumentID> <xmpMM:OriginalDocumentID>xmp.did:0DED7059C044E01181B5E61307CDDEA2</xmpMM:OriginalDocumentID> <xmpMM:DerivedFrom rdf:parseType="Resource"> <stRef:instanceID>xmp.iid:1A72AAACA04CE0118D969187A884DC50</stRef:instanceID> <stRef:documentID>xmp.did:14ED7059C044E01181B5E61307CDDEA2</stRef:documentID> <stRef:originalDocumentID>xmp.did:0DED7059C044E01181B5E61307CDDEA2</stRef:originalDocumentID> </xmpMM:DerivedFrom> </rdf:Description> <rdf:Description rdf:about="" xmlns:dc="http://purl.org/dc/elements/1.1/"> <dc:format>application/x-shockwave-flash</dc:format> </rdf:Description> </rdf:RDF> 
+
+Frame #    Frame Bytes    Total Bytes    Scene
+-------    -----------    -----------    -----
+      1         784230         784230    Scene 1 (AS 3.0 Classes Export Frame)
+
+Scene      Shape Bytes    Text Bytes    ActionScript Bytes
+-------    -----------    ----------    ------------------
+Scene 1              0             0                707668
+
+Symbol            Shape Bytes    Text Bytes    ActionScript Bytes
+--------------    -----------    ----------    ------------------
+digital_bg                  0             0                     0
+seconds_needle              0             0                     0
+hours_needle                0             0                     0
+minutes_needle              0             0                     0
+clock_bg                    0             0                     0
+
+Font Name    Bytes         Characters
+---------    ----------    ----------
+Calibri           22285    .0123456789:
+
+ActionScript Bytes    Location
+------------------    --------
+            707668    Scene 1:Frame 1
+
+Bitmap               Compressed    Original      Compression
+-----------------    ----------    ----------    -----------
+clock_main.png            44600       1012032    JPEG Quality=80
+digital.png                1470         21244    Lossless
+big_needle2.png            2457       1012032    Lossless
+mid_needle2.png            2062       1012032    Lossless
+small_needle2.png          1702       1012032    Lossless
+
+
+
+
