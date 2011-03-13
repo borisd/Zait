@@ -7,13 +7,6 @@ function stringToTime(time) {
   return datetime.getTime();
 }
 
-function stringToDateTime(date, time) {
-  var sd = date.split('/');
-  var st = time.split(':');
-  var datetime = new Date(sd[2], sd[1] - 1, sd[0], st[0], st[1], st[2], 0);
-  return datetime.getTime();
-}
-
 function TimeObject(coef, sunTime, nextStop, timestamp) {
   return {
     coef: coef,
@@ -39,7 +32,6 @@ var Time = function() {
     init: function()
     {
       console.log('Start clock init...');
-
       this._getTime();
     },
 
@@ -57,27 +49,23 @@ var Time = function() {
     _getTime: function()
     {
       var that = Time;
-      
+
       var params = {
-        'makom': 'YISRAEL',
-        'latitude': 31.78333,
-        'longitude': 35.2,
-        'altitude': 700,
-        'calculator': 'NAVAL',
-        'timezone': 'Asia/Jerusalem',
-        'requestDate': '20/02/2011',
-        'requestTime': '15:08:00:000',
-        'requestTimestamp': (new Date()).getTime()
-      };
+        'lat': 31.78333,
+        'long': 35.2,
+        'reqtime': (new Date()).getTime(),
+        'param': (new Date()).getTime()
+      }
 
       function loadTime(data) {
         console.log('Got clock data: ' + data);
+        console.log(data);
         var time = TimeObject();
 
         time.coef      = data.coef;
-        time.sunTime   = stringToTime(data.jewishTime);
-        time.nextStop  = stringToDateTime(data.nextStopDate, data.nextStopTime);
-        time.timestamp = parseInt(data.requestTimestamp);
+        time.sunTime   = stringToTime(data.suntime);
+        time.nextStop  = data.stop;
+        time.timestamp = data.param;
 
         that.currTime = time; 
         console.log('Jewish : ' + (new Date(time.sunTime)));
@@ -90,21 +78,9 @@ var Time = function() {
         console.log(' -- Error getting clock data: ' + error);
       }
 
-      var fake = {
-        coef: 4.070101560564776,
-        jewishDate: "16 ADAR_I 5771",
-        jewishTime: "11:28:22",
-        nextStopDate: "12/3/2011",
-        nextStopTime: "17:29:41",
-        processingTime: 0,
-        requestTimestamp: (new Date()).getTime()
-      }
-
-      return loadTime(fake);
-
       $.ajax({
         type: "GET",
-        url: "http://icore11.servehttp.com/jewishTimeServices/ServletZmanimServices",
+        url: "sun_time",
         data: params,
         success: loadTime,
         error: loadTimeError,
