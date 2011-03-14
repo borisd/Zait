@@ -17,11 +17,14 @@ class SunTimeController < ApplicationController
       param   = params[:param].to_i
 
       # Prepare params for request
-      params = "?makom=YISRAEL&latitude=#{lat}&longitude=#{long}&altitude=700&calculator=NAVAL&timezone=UTC&requestDate=#{reqtime.strftime('%d/%m/%Y')}&requestTime=#{reqtime.strftime('%H:%M:%S:000')}&requestTimestamp=#{param}"
+      params = "?makom=YISRAEL&latitude=#{lat}&longitude=#{long}&altitude=700&calculator=NAVAL&timezone=Asia/Jerusalem&requestDate=#{reqtime.strftime('%d/%m/%Y')}&requestTime=#{reqtime.strftime('%H:%M:%S:000')}&requestTimestamp=#{param}"
 
       data = ActiveSupport::JSON.decode(open(timeserver + params).read)
 
       nextstop = DateTime.strptime("#{data['nextStopDate']} #{data['nextStopTime']}", "%d/%m/%Y %H:%M:%S").to_i
+
+      nextstop = reqtime.to_i + 5;
+      data['coef'] = rand(100);
 
       render :json => { 
         :status => 'OK', 
@@ -29,7 +32,8 @@ class SunTimeController < ApplicationController
         :stop    => nextstop, 
         :suntime => data['jewishTime'], 
         :param   => param, 
-        :debug   => data }
+        :debug   => data,
+        :request => params }
 
     rescue => e
       render :json => { :status => 'ERROR', :error => e.message, :trace => e.backtrace }
