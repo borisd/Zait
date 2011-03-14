@@ -66,7 +66,7 @@ var Time = function() {
 
       print('Now : ' + now);
       print('Stop: ' + that.currTime.nextStop + ' - ' + (new Date(that.currTime.nextStop)));
-      console.log('Starting timer in ' + (that.currTime.nextStop - now) + ' ms');
+      print('Starting timer in ' + (that.currTime.nextStop - now) + ' ms');
       that.timer = setTimeout(that._updateClock, that.currTime.nextStop - now); 
 
       that._updateClock();

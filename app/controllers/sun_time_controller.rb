@@ -23,8 +23,8 @@ class SunTimeController < ApplicationController
 
       nextstop = DateTime.strptime("#{data['nextStopDate']} #{data['nextStopTime']}", "%d/%m/%Y %H:%M:%S").to_i
 
-      nextstop = reqtime.to_i + 5;
-      data['coef'] = rand(100);
+      #nextstop = reqtime.to_i + 5;
+      #data['coef'] = rand(100);
 
       render :json => { 
         :status => 'OK', 
