@@ -1,6 +1,8 @@
 function print(msg) {
-  if (console && console.log)
-    console.log(msg);
+  if (typeof console === 'undefined')
+    return;
+
+  console.log(msg);
 }
 
 function stringToTime(time) {
@@ -28,12 +30,14 @@ function TimeObject(coef, sunTime, nextStop, timestamp) {
   }
 }
 
-var Time = function() {
+Time = function() {
   return {
     flashClock: null,
     currTime: null,
     nextTime: null,
     timer: null,
+    lng: null,
+    lat: null,
 
     flashReady: function(clock) 
     {
@@ -42,9 +46,30 @@ var Time = function() {
       this._updateClock();
     },
 
+    _clear: function() 
+    {
+      var that = Time;
+      that._currTime = null;
+      that._nextTime = null;
+      that.lat = null;
+      that.lng = null;
+      if (that.timer)
+        clearTimeout(that.timer);
+      that.timer = null;
+    },
+
     init: function()
     {
       print('Start clock init...');
+      this._clear();
+    },
+
+    setLocation: function(lat, lng)
+    {
+      print('Set location');
+      this._clear();
+      this.lng = lng;
+      this.lat = lat;
       this._getTime((new Date()).getTime(), this._setTime);
     },
 
@@ -116,8 +141,8 @@ var Time = function() {
       var that = Time;
 
       var params = {
-        'lat': 31.78333,
-        'long': 35.2,
+        'lat': that.lat,
+        'long': that.lng,
         'reqtime': start,
         'param': (new Date()).getTime()
       }
