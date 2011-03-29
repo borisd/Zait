@@ -26,7 +26,9 @@ class SunTimeController < ApplicationController
 
       nextstop = DateTime.strptime("#{data['nextStopDate']} #{data['nextStopTime']}", "%d/%m/%Y %H:%M:%S").to_i
 
-      events = data['zmanim']['LOUAH_AHID'].map { |i| { 'ms' => DateTime.strptime(i["gt"], "%H:%M:%S").to_i, 'name' => i['id'] } }
+      events_data = data['zmanim']['LOUAH_AHID'][0,4]
+
+      events = events_data.map { |i| { 'ms' => DateTime.strptime(i["gt"], "%H:%M:%S").to_i, 'name' => i['id'], 'sun' => i["jt"] } }
       events.sort! { |a,b| a["ms"] <=> b["ms"] }
 
       render :json => { 

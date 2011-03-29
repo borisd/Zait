@@ -118,7 +118,7 @@ Time = function() {
         that._setTime(nextTime);
       } else {
         print('Update flash clock');
-        that.flashClock.loadClock(that.currTime.coef, that.currTime.sunTime, that.currTime.timestamp);
+        that.flashClock.loadClock(that.currTime.coef, that.currTime.sunTime, that.currTime.timestamp, that.currTime.events);
       }
     },
 

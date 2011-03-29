@@ -2,13 +2,18 @@
 {
 	public class SunTime 
 	{
+		private function print(msg:String) 
+		{
+			//trace(msg);
+		}
+		
 		public function SunTime(_coef:Number, _jewishTime:Number, _requestTime:Number)
 		{
-			trace("Init suntime");
+			print("Init suntime");
 			coef = _coef;			
 			startJewishTime  = new Date(_jewishTime);
 			startRequestTime = new Date(_requestTime);
-			trace("Jewish: " + startJewishTime + " Request: " + startRequestTime);
+			print("Jewish: " + startJewishTime + " Request: " + startRequestTime);
 		}
 	
 		private var coef:Number;
@@ -22,10 +27,10 @@
 	
 		public function calculate(time):void
 		{
-			trace("Starting time calculation from: " + time + " diff: " + (time - startRequestTime.getTime()));
-			trace("jew" + startJewishTime + " request: " + startRequestTime);
+			print("Starting time calculation from: " + time + " diff: " + (time - startRequestTime.getTime()));
+			print("jew" + startJewishTime + " request: " + startRequestTime);
 			currJewishTime = new Date(startJewishTime.getTime() + (time - startRequestTime.getTime()) * coef);
-			trace("Result: " + currJewishTime);
+			print("Result: " + currJewishTime);
 		}
 		
 		public function getSeconds():int {

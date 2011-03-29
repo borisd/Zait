@@ -17,7 +17,7 @@
       <param name="quality" value="high" />
       <param name="wmode" value="transparent" />
       <param name="bgcolor" value="#ffffff" />
-      %embed{ :src => "flash/clock.swf", :menu => "false", :quality => "high", :bgcolor => "#ffffff", :width => "550", :height => "400", :swLiveConnect => "true", :id => "clock", :name => "clock", :align => "middle", :allowScriptAccess => "sameDomain", :type => "application/x-shockwave-flash", :pluginspage => "http://www.adobe.com/go/getflashplayer" }
+      %embed{ :src => "flash/clock.swf?#{rand(1000000)}", :menu => "false", :quality => "high", :bgcolor => "#ffffff", :width => "550", :height => "400", :swLiveConnect => "true", :id => "clock", :name => "clock", :align => "middle", :allowScriptAccess => "sameDomain", :type => "application/x-shockwave-flash", :pluginspage => "http://www.adobe.com/go/getflashplayer" }
 
 #info_bar
   #event_list.info_area
