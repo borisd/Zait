@@ -3,9 +3,9 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.5'
 gem 'sqlite3'
 gem 'heroku'
+gem 'haml'
+gem 'jquery-rails'
 
 group :development, :test do
-#  gem 'sqlite3-ruby', :require => 'sqlite3'
-  #gem 'ruby-debug'
-  #gem 'webrat'
+  gem 'ruby-debug'
 end

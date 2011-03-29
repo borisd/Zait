@@ -51,6 +51,6 @@ Location = function() {
             alert("Could not find location");
           }
         });
-    },
+    }
   }
 }();

@@ -1,0 +1,56 @@
+#clock_bar
+  #clock_header.info_area
+    %p
+      Please enter your location
+    %input#address{ :type => "textbox", :value => "Sydney, NSW"}
+    %input{ :type => "button", :value => "Find", :onclick => "codeAddress()"} 
+
+    #resolved_address
+
+  #clock_content.info_area
+    #loading
+      Loading...
+    %object#clock{ :classid => "clsid:d27cdb6e-ae6d-11cf-96b8-444553540000", :codebase => "http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=10,0,0,0", :width => "550", :height => "400", :align => "middle" }
+      <param name="allowScriptAccess" value="sameDomain" />
+      <param name="movie" value="flash/clock.swf" />
+      <param name="menu" value="false" />
+      <param name="quality" value="high" />
+      <param name="wmode" value="transparent" />
+      <param name="bgcolor" value="#ffffff" />
+      %embed{ :src => "flash/clock.swf", :menu => "false", :quality => "high", :bgcolor => "#ffffff", :width => "550", :height => "400", :swLiveConnect => "true", :id => "clock", :name => "clock", :align => "middle", :allowScriptAccess => "sameDomain", :type => "application/x-shockwave-flash", :pluginspage => "http://www.adobe.com/go/getflashplayer" }
+
+#info_bar
+  #event_list.info_area
+    %ul
+
+  #info_text.info_area
+    %p
+      Some text about the product with links and maybe picture ?
+
+%div{ :style => "clear:both" }
+
+:javascript
+  function codeAddress() {
+    var address = $('#address').val();
+    Location.decode(address);
+  }
+
+  function JSclockReady(val) {
+    var isInternetExplorer = navigator.appName.indexOf("Microsoft") != -1;
+    var clock = isInternetExplorer ? document.all.clock : document.clock;
+    print('Got: [' + val + ']');
+    Time.flashReady(clock);
+    $('#loading').hide();
+  }
+
+  function JSprint(val) {
+    print('Flash: [' + val + ']');
+  }
+
+  $(window).ready(function() {
+    print('Document ready...');
+    Events.init();
+    Time.init();
+    Location.init();
+  });
+
