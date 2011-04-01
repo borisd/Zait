@@ -14,10 +14,20 @@
 
     = csrf_meta_tag 
   %body
-    #header
-      Zait Clock
+    #content
+      #header
+        %h1
+          Zait Clock
 
-    = yield
+      = yield
 
-    #footer
-      links..
+      #footer
+        %ul
+          %li 
+            = link_to "Home", "/"
+          %li 
+            = link_to "iPhone", "/iPhone"
+          %li 
+            = link_to "About", "/About"
+          %li 
+            = link_to "Contact", "/Contact"

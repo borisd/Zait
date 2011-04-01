@@ -7,7 +7,7 @@ function Event(time, name, $container) {
 
     _init: function(time, name, $container)
     {
-      print("Adding event: " + name + " (" + time + ")");
+      output("Adding event: " + name + " (" + time + ")");
       this.name = name;
       this.time = time * 1000;
       this.$object = $("<li />");
@@ -17,7 +17,7 @@ function Event(time, name, $container) {
 
     clear: function()
     {
-      print("Remove event " + this.name);
+      output("Remove event " + this.name);
 
       if (this.$object) {
         this.$object.remove();
@@ -48,12 +48,13 @@ function Event(time, name, $container) {
 
       this.timer = null;
 
-      print("Check event " + this.name + " (" + now + " : " + this.time + ")");
+      output("Check event " + this.name + " (" + now + " : " + this.time + ")");
 
       // In the past ?
       if (diff <= 0) {
-        print("Event in the past, skipping: " + this.name);
-        this.clear();
+        output("Event in the past, skipping: " + this.name);
+       // this.clear();
+        this.$object.html('Past ' + this.name).addClass('past');
         return;
       }
 
@@ -86,7 +87,7 @@ Events = function() {
     {
       this._clear();
 
-      print('\n\nLOADING EVENTS: ' + events.length + '\n\n');
+      output('\n\nLOADING EVENTS: ' + events.length + '\n\n');
       for (var i=0; i < events.length - 1; i++) {
         var obj = events[i];
         this.events.push(new Event(obj.ms, obj.name, this.$container));

@@ -5,11 +5,11 @@ function TimeObject(coef, sunTime, nextStop, timestamp) {
     nextStop: nextStop,
     timestamp: timestamp,
 
-    print: function() 
+    output: function() 
     {
-      print('Coef: ' + this.coef);
-      print('Jewish : ' + (new Date(this.sunTime)));
-      print('Request: ' + (new Date(this.timestamp)));
+      output('Coef: ' + this.coef);
+      output('Jewish : ' + (new Date(this.sunTime)));
+      output('Request: ' + (new Date(this.timestamp)));
     }
   }
 }
@@ -25,7 +25,7 @@ Time = function() {
 
     flashReady: function(clock) 
     {
-      print('Flash clock loaded');
+      output('Flash clock loaded');
       this.flashClock = clock;
       this._updateClock();
     },
@@ -44,13 +44,13 @@ Time = function() {
 
     init: function()
     {
-      print('Start clock init...');
+      output('Start clock init...');
       this._clear();
     },
 
     setLocation: function(lat, lng)
     {
-      print('Set location');
+      output('Set location');
       this._clear();
       this.lng = lng;
       this.lat = lat;
@@ -62,8 +62,8 @@ Time = function() {
       var that = Time;
       var now = (new Date()).getTime();
 
-      print('Setting CURR time... next: ' + (new Date(time.nextStop)));
-      time.print();
+      output('Setting CURR time... next: ' + (new Date(time.nextStop)));
+      time.output();
 
       that.currTime = time; 
 
@@ -73,9 +73,9 @@ Time = function() {
       if (that.timer)
         clearTimeout(that.timer);
 
-      print('Now : ' + now);
-      print('Stop: ' + that.currTime.nextStop + ' - ' + (new Date(that.currTime.nextStop)));
-      print('Starting timer in ' + (that.currTime.nextStop - now) + ' ms');
+      output('Now : ' + now);
+      output('Stop: ' + that.currTime.nextStop + ' - ' + (new Date(that.currTime.nextStop)));
+      output('Starting timer in ' + (that.currTime.nextStop - now) + ' ms');
       that.timer = setTimeout(that._updateClock, that.currTime.nextStop - now); 
 
       Events.load(time.events);
@@ -87,8 +87,8 @@ Time = function() {
     {
       var that = Time;
 
-      print('Setting NEXT time...');
-      time.print();
+      output('Setting NEXT time...');
+      time.output();
 
       that.nextTime = time;
       that._updateClock();
@@ -99,25 +99,25 @@ Time = function() {
       var that = Time;
       var now = (new Date()).getTime();
 
-      print('Running update clock..');
+      output('Running update clock..');
 
       if (!that.flashClock || !that.currTime)
         return;
 
       if (that.currTime.nextStop <= now) {
         if (!that.nextTime) {
-          print('-- Need the next time object, but its not present yet');
+          output('-- Need the next time object, but its not present yet');
           return;
         }
 
-        print('Advance to next time object');
+        output('Advance to next time object');
 
         var nextTime = that.nextTime;
         that.nextTime = null;
 
         that._setTime(nextTime);
       } else {
-        print('Update flash clock');
+        output('Update flash clock');
         that.flashClock.loadClock(that.currTime.coef, that.currTime.sunTime, that.currTime.timestamp, that.currTime.events);
       }
     },
@@ -134,8 +134,8 @@ Time = function() {
       }
 
       function loadTime(data) {
-        print('Got clock data: ' + data);
-        print(data);
+        output('Got clock data: ' + data);
+        output(data);
         var time = TimeObject();
 
         time.coef      = data.coef;
@@ -148,7 +148,7 @@ Time = function() {
       }
 
       function loadTimeError(xhr, error) {
-        print(' -- Error getting clock data: ' + error);
+        output(' -- Error getting clock data: ' + error);
       }
 
       $.ajax({

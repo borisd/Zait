@@ -1,4 +1,4 @@
-function print(msg) {
+function output(msg) {
   if (typeof console === 'undefined')
     return;
 

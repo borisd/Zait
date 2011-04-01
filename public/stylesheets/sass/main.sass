@@ -1,25 +1,95 @@
+// General settings
 *
   font-family: 'Arial Unicode MS', 'Arial'
   font-size: 16px
   padding: 0px
   margin: 0px
+  color: #ffffff
 
 .info_area
   padding: 10px
 
+.clear
+  clear: both
+
+h1
+  font-size: 30px
+
+body
+  background: url('/images/bg_small.jpg')
+
+// Layout settings
+
+#content
+  width: 960px
+  margin: auto
+
+#header
+  margin: 10px
+
 #clock_bar
-  border: 1px solid red
   float: left
   width: 600px
   #clock_header
-    border: 1px solid blue
+    p
+      margin-left: 5px
+    #address_bar div
+      float: left
+
   #clock_content
+    width: 500px
+    margin: auto
+    #resolved_address
+      width: 100%
+      text-align: center
 
 #info_bar
-  border: 1px solid blue
   float: left
-  width: 200px
-  #event_list li
-    font-size: 12px
+  width: 270px
+  #event_list 
+    background: url('/images/upcoming.png') no-repeat
+    width: 263px
+    li
+      font-size: 12px
+      list-style: none
+
+  #info_text
+    margin-top: 100px
 
 
+#footer
+  text-align: center
+  ul
+    list-style: none
+    li
+      font-size: 26px
+      display: inline
+      border-left: 2px solid white
+      padding-left: 5px
+      a
+        text-decoration: none
+    li:first-child
+      border: none
+
+// Element settings
+
+#address
+  border: none
+  width: 186px
+  height: 34px
+  padding: 0 6px
+  margin-right: 10px
+  background: url('/images/address_input.png') no-repeat
+  color: #222
+#address.pending
+  color: #777
+
+.find_button 
+  width: 53px
+  height: 35px
+  display: inline
+  background: url('/images/find_btn_normal.png') no-repeat
+.find_button:hover
+  background: url('/images/find_btn_hover.png') no-repeat
+.find_button:active
+  background: url('/images/find_btn_active.png') no-repeat
