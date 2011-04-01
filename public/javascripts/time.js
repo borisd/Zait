@@ -1,19 +1,3 @@
-function print(msg) {
-  if (typeof console === 'undefined')
-    return;
-
-  console.log(msg);
-}
-
-function stringToTime(time) {
-  var st = time.split(':');
-  var datetime = new Date();
-  datetime.setHours  (st[0]);
-  datetime.setMinutes(st[1]);
-  datetime.setSeconds(st[2]);
-  return datetime.getTime();
-}
-
 function TimeObject(coef, sunTime, nextStop, timestamp) {
   return {
     coef: coef,
@@ -91,8 +75,10 @@ Time = function() {
 
       print('Now : ' + now);
       print('Stop: ' + that.currTime.nextStop + ' - ' + (new Date(that.currTime.nextStop)));
-      console.log('Starting timer in ' + (that.currTime.nextStop - now) + ' ms');
+      print('Starting timer in ' + (that.currTime.nextStop - now) + ' ms');
       that.timer = setTimeout(that._updateClock, that.currTime.nextStop - now); 
+
+      Events.load(time.events);
 
       that._updateClock();
     },
@@ -132,7 +118,7 @@ Time = function() {
         that._setTime(nextTime);
       } else {
         print('Update flash clock');
-        that.flashClock.loadClock(that.currTime.coef, that.currTime.sunTime, that.currTime.timestamp);
+        that.flashClock.loadClock(that.currTime.coef, that.currTime.sunTime, that.currTime.timestamp, that.currTime.events);
       }
     },
 
@@ -156,6 +142,7 @@ Time = function() {
         time.sunTime   = stringToTime(data.suntime);
         time.nextStop  = data.stop * 1000;
         time.timestamp = data.param;
+        time.events    = data.events;
 
         callback(time);
       }
@@ -172,6 +159,6 @@ Time = function() {
         error: loadTimeError,
         timeout: 15000
       });
-    },
+    }
   }
 }();
