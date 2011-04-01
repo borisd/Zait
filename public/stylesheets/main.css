@@ -1,0 +1,89 @@
+* {
+  font-family: "Arial Unicode MS", "Arial";
+  font-size: 16px;
+  padding: 0px;
+  margin: 0px;
+  color: white; }
+
+.info_area {
+  padding: 10px; }
+
+.clear {
+  clear: both; }
+
+h1 {
+  font-size: 30px; }
+
+body {
+  background: url("/images/bg_small.jpg"); }
+
+#content {
+  width: 960px;
+  margin: auto; }
+
+#header {
+  margin: 10px; }
+
+#clock_bar {
+  float: left;
+  width: 600px; }
+  #clock_bar #clock_header p {
+    margin-left: 5px; }
+  #clock_bar #clock_header #address_bar div {
+    float: left; }
+  #clock_bar #clock_content {
+    width: 500px;
+    margin: auto; }
+    #clock_bar #clock_content #resolved_address {
+      width: 100%;
+      text-align: center; }
+
+#info_bar {
+  float: left;
+  width: 270px; }
+  #info_bar #event_list {
+    background: url("/images/upcoming.png") no-repeat;
+    width: 263px; }
+    #info_bar #event_list li {
+      font-size: 12px;
+      list-style: none; }
+  #info_bar #info_text {
+    margin-top: 100px; }
+
+#footer {
+  text-align: center; }
+  #footer ul {
+    list-style: none; }
+    #footer ul li {
+      font-size: 26px;
+      display: inline;
+      border-left: 2px solid white;
+      padding-left: 5px; }
+      #footer ul li a {
+        text-decoration: none; }
+    #footer ul li:first-child {
+      border: none; }
+
+#address {
+  border: none;
+  width: 186px;
+  height: 34px;
+  padding: 0 6px;
+  margin-right: 10px;
+  background: url("/images/address_input.png") no-repeat;
+  color: #222222; }
+
+#address.pending {
+  color: #777777; }
+
+.find_button {
+  width: 53px;
+  height: 35px;
+  display: inline;
+  background: url("/images/find_btn_normal.png") no-repeat; }
+
+.find_button:hover {
+  background: url("/images/find_btn_hover.png") no-repeat; }
+
+.find_button:active {
+  background: url("/images/find_btn_active.png") no-repeat; }
