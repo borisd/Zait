@@ -16,7 +16,7 @@ class SunTimeController < ApplicationController
       # Get parameters
       lat     = find_or_raise(params, :lat, "Missing lattitude")
       long    = find_or_raise(params, :long, "Missing longitude")
-      reqtime = Time.at(find_or_raise(params, :reqtime, "Missing request time").to_i / 1000)
+      reqtime = Time.at(find_or_raise(params, :reqtime, "Missing request time").to_i / 1000).utc
       param   = params[:param].to_i
 
       # Prepare params for request
@@ -24,7 +24,7 @@ class SunTimeController < ApplicationController
 
       data = ActiveSupport::JSON.decode(open(timeserver + params).read)
 
-      nextstop = DateTime.strptime("#{data['nextStopDate']} #{data['nextStopTime']}", "%d/%m/%Y %H:%M:%S").to_i
+      nextstop = DateTime.strptime("#{data['nextStopDate']} #{data['nextStopTime']} UTC", "%d/%m/%Y %H:%M:%S %Z").to_i
 
       events = Event.new(data['zmanim']['LOUAH_AHID'])
       render :json => { 
