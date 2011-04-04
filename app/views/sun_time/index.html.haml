@@ -1,14 +1,4 @@
 #clock_bar
-  #clock_header.info_area
-    %p
-      Please enter your location
-    #address_bar
-      %div
-        %input#address.pending{ :type => "textbox", :value => "Enter your location"}
-      %div
-        .find_button
-    .clear
-
   #clock_content.info_area
     #resolved_address
     #loading
@@ -22,6 +12,16 @@
       %embed{ :src => "flash/clock.swf?#{rand(1000000)}", :menu => "false", :wmode => "transparent", :quality => "high", :width => "500", :height => "500", :swLiveConnect => "true", :id => "clock", :name => "clock", :align => "middle", :allowScriptAccess => "sameDomain", :type => "application/x-shockwave-flash", :pluginspage => "http://www.adobe.com/go/getflashplayer" }
 
 #info_bar.info_area
+  #location_input
+    %p
+      Please enter your location
+    #address_bar
+      %div
+        %input#address.pending{ :type => "textbox", :value => "Enter your location"}
+      %div
+        .find_button
+    .clear
+
   #event_list
     .event_list_top
     .event_list_content

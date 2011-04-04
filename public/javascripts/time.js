@@ -26,6 +26,10 @@ Time = function() {
     flashReady: function(clock) 
     {
       output('Flash clock loaded');
+
+      if (typeof clock.loadClock == "undefined")
+        clock = clock[1];
+
       this.flashClock = clock;
       this._updateClock();
     },

@@ -27,7 +27,7 @@ p {
   background: url("/images/bg_small.jpg"); }
 
 #content {
-  width: 960px;
+  width: 900px;
   margin: auto;
   padding-bottom: 20px; }
 
@@ -40,10 +40,6 @@ p {
 #clock_bar {
   float: left;
   width: 500px; }
-  #clock_bar #clock_header p {
-    margin-left: 5px; }
-  #clock_bar #clock_header #address_bar div {
-    float: left; }
   #clock_bar #clock_content {
     width: 500px;
     margin: auto; }
@@ -52,9 +48,14 @@ p {
       text-align: center; }
 
 #info_bar {
-  float: left;
-  width: 270px;
-  padding-top: 25px; }
+  float: right;
+  width: 270px; }
+  #info_bar #location_input {
+    margin-bottom: 10px; }
+    #info_bar #location_input p {
+      margin-left: 5px; }
+    #info_bar #location_input #address_bar div {
+      float: left; }
   #info_bar #event_list {
     width: 263px; }
     #info_bar #event_list .event_list_top {
