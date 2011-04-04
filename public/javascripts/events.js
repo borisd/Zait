@@ -11,6 +11,9 @@ function Event(time, name, $container) {
       this.name = name;
       this.time = time * 1000;
       this.$object = $("<li />");
+
+      if (!this.$object) alert("No Object found");
+
       $container.append(this.$object);
       this._update();
     },
@@ -39,22 +42,22 @@ function Event(time, name, $container) {
       }
 
       var now = (new Date()).getTime();
-      var diff = this.time - now;
+      var diff = that.time - now;
 
       var calc_table = [
         { period: (1000*60*60), name: 'Hours'   },
         { period: (1000*60   ), name: 'Minutes' },
         { period: (1000      ), name: 'Seconds' }];
 
-      this.timer = null;
+      that.timer = null;
 
-      output("Check event " + this.name + " (" + now + " : " + this.time + ")");
+      output("Check event " + that.name + " (" + now + " : " + that.time + ")");
 
       // In the past ?
       if (diff <= 0) {
-        output("Event in the past, skipping: " + this.name);
-        this.clear();
-        //this.$object.html('Past ' + this.name).addClass('past');
+        output("Event in the past, skipping: " + that.name);
+        that.clear();
+        //that.$object.html('Past ' + that.name).addClass('past');
         return;
       }
 
@@ -63,7 +66,7 @@ function Event(time, name, $container) {
 
         if (diff > calc.period) {
           setTimeout(update_now, ((diff % calc.period) + 500));
-          this.$object.html(Math.round(diff/calc.period) + ' ' + calc.name + ' - ' + this.name);
+          that.$object.html(Math.round(diff/calc.period) + ' ' + calc.name + ' - ' + that.name);
           return;
         }
       }

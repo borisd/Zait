@@ -22,10 +22,13 @@
       %embed{ :src => "flash/clock.swf?#{rand(1000000)}", :menu => "false", :wmode => "transparent", :quality => "high", :width => "500", :height => "500", :swLiveConnect => "true", :id => "clock", :name => "clock", :align => "middle", :allowScriptAccess => "sameDomain", :type => "application/x-shockwave-flash", :pluginspage => "http://www.adobe.com/go/getflashplayer" }
 
 #info_bar.info_area
-  #event_list.info_area
-    %h3
-      Upcoming events
-    %ul
+  #event_list
+    .event_list_top
+    .event_list_content
+      %h3
+        Upcoming events
+      %ul
+    .event_list_bottom
 
   #info_text.info_area
     %p

@@ -14,14 +14,17 @@
 
     = csrf_meta_tag 
   %body
-    #content
-      #header
-        %h1
-          Zait Clock
+    #main
+      #content
+        #header
+          %h1
+            Zait Clock
 
-      = yield
+        = yield
 
-      #footer
+    #footer
+      .footer_top
+      .links
         .item
           = link_to "Home", "/"
         .separator
