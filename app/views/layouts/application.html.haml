@@ -22,12 +22,14 @@
       = yield
 
       #footer
-        %ul
-          %li 
-            = link_to "Home", "/"
-          %li 
-            = link_to "iPhone", "/iPhone"
-          %li 
-            = link_to "About", "/About"
-          %li 
-            = link_to "Contact", "/Contact"
+        .item
+          = link_to "Home", "/"
+        .separator
+        .item
+          = link_to "iPhone", "/iPhone"
+        .separator
+        .item
+          = link_to "About", "/About"
+        .separator
+        .item
+          = link_to "Contact", "/Contact"

@@ -53,8 +53,8 @@ function Event(time, name, $container) {
       // In the past ?
       if (diff <= 0) {
         output("Event in the past, skipping: " + this.name);
-       // this.clear();
-        this.$object.html('Past ' + this.name).addClass('past');
+        this.clear();
+        //this.$object.html('Past ' + this.name).addClass('past');
         return;
       }
 

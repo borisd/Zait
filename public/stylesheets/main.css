@@ -3,7 +3,8 @@
   font-size: 16px;
   padding: 0px;
   margin: 0px;
-  color: white; }
+  color: white;
+  line-height: 140%; }
 
 .info_area {
   padding: 10px; }
@@ -15,14 +16,21 @@ h1 {
   font-size: 30px; }
 
 body {
-  background: url("/images/bg_small.jpg"); }
+  background: url("/images/bg_small.jpg");
+  background-color: #7f3f00; }
+
+p {
+  margin: 5px 5px; }
 
 #content {
   width: 960px;
   margin: auto; }
 
 #header {
-  margin: 10px; }
+  margin: 20px; }
+
+#content {
+  position: relative; }
 
 #clock_bar {
   float: left;
@@ -34,35 +42,62 @@ body {
   #clock_bar #clock_content {
     width: 500px;
     margin: auto; }
-    #clock_bar #clock_content #resolved_address {
+    #clock_bar #clock_content #resolved_address, #clock_bar #clock_content #loading {
       width: 100%;
       text-align: center; }
 
 #info_bar {
   float: left;
-  width: 270px; }
+  width: 270px;
+  padding-top: 25px; }
   #info_bar #event_list {
     background: url("/images/upcoming.png") no-repeat;
     width: 263px; }
+    #info_bar #event_list h3 {
+      color: #e4d8ae;
+      font-size: 17px; }
     #info_bar #event_list li {
       font-size: 12px;
-      list-style: none; }
+      list-style: none;
+      margin: 10px 0; }
   #info_bar #info_text {
-    margin-top: 100px; }
+    margin-top: 40px;
+    font-size: 18px; }
+  #info_bar #clock_system {
+    position: absolute;
+    bottom: 55px; }
+    #info_bar #clock_system div {
+      float: right; }
+    #info_bar #clock_system div.select_type {
+      float: left;
+      margin-right: 10px;
+      margin-top: 2px; }
+      #info_bar #clock_system div.select_type select {
+        width: 160px;
+        padding: 2px 5px;
+        color: #333333;
+        font-size: 16px;
+        background-color: white; }
 
 #footer {
-  text-align: center; }
-  #footer ul {
-    list-style: none; }
-    #footer ul li {
-      font-size: 26px;
-      display: inline;
-      border-left: 2px solid white;
-      padding-left: 5px; }
-      #footer ul li a {
-        text-decoration: none; }
-    #footer ul li:first-child {
-      border: none; }
+  text-align: center;
+  font-family: "Arial";
+  font-size: 20px;
+  margin: auto;
+  width: 40%; }
+  #footer div {
+    float: left;
+    margin: 10px; }
+    #footer div a {
+      text-decoration: none;
+      cursor: pointer; }
+    #footer div a:hover {
+      color: #e4d8ae; }
+  #footer .separator {
+    width: 2px;
+    height: 10px;
+    margin-top: 18px;
+    background-color: white; }
 
 #address {
   border: none;
@@ -87,3 +122,15 @@ body {
 
 .find_button:active {
   background: url("/images/find_btn_active.png") no-repeat; }
+
+.change_button {
+  width: 73px;
+  height: 35px;
+  display: inline;
+  background: url("/images/change_btn_normal.png") no-repeat; }
+
+.change_button:hover {
+  background: url("/images/change_btn_hover.png") no-repeat; }
+
+.change_button:active {
+  background: url("/images/change_btn_active.png") no-repeat; }

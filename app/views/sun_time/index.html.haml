@@ -19,16 +19,41 @@
       %param{ :name => "menu", :value => "false" } 
       %param{ :name => "quality", :value => "high" } 
       %param{ :name => "wmode", :value => "transparent" } 
-      %param{ :name => "bgcolor", :value => "#111111" } 
-      %embed{ :src => "flash/clock.swf?#{rand(1000000)}", :menu => "false", :quality => "high", :bgcolor => "#880011", :width => "500", :height => "500", :swLiveConnect => "true", :id => "clock", :name => "clock", :align => "middle", :allowScriptAccess => "sameDomain", :type => "application/x-shockwave-flash", :pluginspage => "http://www.adobe.com/go/getflashplayer" }
+      %embed{ :src => "flash/clock.swf?#{rand(1000000)}", :menu => "false", :wmode => "transparent", :quality => "high", :width => "500", :height => "500", :swLiveConnect => "true", :id => "clock", :name => "clock", :align => "middle", :allowScriptAccess => "sameDomain", :type => "application/x-shockwave-flash", :pluginspage => "http://www.adobe.com/go/getflashplayer" }
 
-#info_bar
+#info_bar.info_area
   #event_list.info_area
+    %h3
+      Upcoming events
     %ul
 
   #info_text.info_area
     %p
-      Some text about the product with links and maybe picture ?
+      What is the Zait clock and how does it work ?
+    %p
+      Get More 
+      = link_to "information", "#"
+      or explore the site and try the clock.
+
+  #clock_system.info_area
+    %p
+      Clock system
+    %div
+      %div.select_type
+        %select.system_type{ :name => "system_type" }
+          %option{ :value => '1'}
+            Load ahid
+          %option{ :value => '2'}
+            Rav Ovadia
+          %option{ :value => '3'}
+            Toukasinski
+          %option{ :value => '4'}
+            Habad
+          %option{ :value => '5'}
+            Ben Yishay
+      %div
+        .change_button
+
 
 %div{ :style => "clear:both" }
 
