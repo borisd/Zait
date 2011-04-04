@@ -77,23 +77,20 @@ p {
   #info_bar #info_text {
     margin-top: 40px;
     font-size: 18px; }
-  #info_bar #clock_system {
-    position: absolute;
-    bottom: 55px; }
-    #info_bar #clock_system div {
-      float: right; }
-    #info_bar #clock_system div.select_type {
-      float: left;
-      margin-right: 10px;
-      margin-top: 2px; }
-      #info_bar #clock_system div.select_type select {
-        width: 160px;
-        padding: 2px 5px;
-        color: #333333;
-        font-size: 16px;
-        background-color: white; }
-        #info_bar #clock_system div.select_type select option {
-          color: #333333; }
+  #info_bar #clock_system div {
+    float: right; }
+  #info_bar #clock_system div.select_type {
+    float: left;
+    margin-right: 10px;
+    margin-top: 2px; }
+    #info_bar #clock_system div.select_type select {
+      width: 160px;
+      padding: 2px 5px;
+      color: #333333;
+      font-size: 16px;
+      background-color: white; }
+      #info_bar #clock_system div.select_type select option {
+        color: #333333; }
 
 option {
   color: #333333; }
