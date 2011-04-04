@@ -26,7 +26,7 @@ Time = function() {
     flashReady: function(clock) 
     {
       output('Flash clock loaded');
-      this.flashClock = clock[1];
+      this.flashClock = clock;
       this._updateClock();
     },
 
@@ -101,8 +101,14 @@ Time = function() {
 
       output('Running update clock..');
 
-      if (!that.flashClock || !that.currTime)
+      if (!that.flashClock) {
+      	output('No flash clock..');
+	return;
+	}
+      if (!that.currTime) {
+        output('No curr time..');
         return;
+	}
 
       if (that.currTime.nextStop <= now) {
         if (!that.nextTime) {

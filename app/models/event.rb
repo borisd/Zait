@@ -32,11 +32,25 @@ class Event
     'HADLAKAT_NEROT_CHABBAT_ALEF' => 'Shabat candles A',
     'HADLAKAT_NEROT_CHABBAT_BET'  => 'Shabat candles B',
     'CHKYA'                       => '',
+    'CHAA_LAYLA'                  => '',
+    'ZRICHA'                      => '',
+    "ALOT_19_75DEG_90MIN" 	  => 'Alot hashahar',
+    "ALOT_16_1DEG_72MIN" 	  => '',
+    "ALOT_11_5DEG_60MIN"          => '',
+    "ZRICHA"                      => '',
+    "TSET_HACOCHAVIM_ALEF_3_55DEG" => 'Stars out alef',
+    "TSET_HACOCHAVIM_BET_4_5DEG"  => 'Stars out bet',
+    "SOF_TAANIT_DERABANAN"        => 'End of taanit',
+    "TSET_HACHABBAT_8_5DEG_36MIN" => 'End of shabat',
+    "TSET_HACOCHAVIM_RABENOU_TAM_16_1DEG_72MIN" => '',
+    "HATSOT_LAYLA"                => '',
   
   }
 
   def get_name(name)
-    DICT[name] or ''
+    resolv = DICT[name]
+    resolv = name if resolv.nil?
+    resolv
   end
 
   def calc_time(str)
@@ -48,6 +62,8 @@ class Event
     result += split[0].to_i * 60 * 60
     result += split[1].to_i * 60
     result += split[2].to_i
+
+    puts "Calc time: #{str} = #{result}"
 
     result
   end

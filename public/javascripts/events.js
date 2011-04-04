@@ -56,8 +56,8 @@ function Event(time, name, $container) {
       // In the past ?
       if (diff <= 0) {
         output("Event in the past, skipping: " + that.name);
-        that.clear();
-        //that.$object.html('Past ' + that.name).addClass('past');
+        // that.clear();
+        that.$object.html('Past ' + that.name).addClass('past');
         return;
       }
 
@@ -90,7 +90,7 @@ Events = function() {
     {
       this._clear();
 
-      output('\n\nLOADING EVENTS: ' + events.length + '\n\n');
+      output('Loading events: ' + events.length);
       for (var i=0; i < events.length - 1; i++) {
         var obj = events[i];
         this.events.push(new Event(obj.ms, obj.name, this.$container));
